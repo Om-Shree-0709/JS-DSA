@@ -1,28 +1,36 @@
-const fibonacciSeriesIterative = (n) => {
-  if (n < 0) return []; // For negative input, return an empty array
+// Generates the nth Fibonacci number (0-indexed: fib(0)=0, fib(1)=1)
+const fibonacciIterative = (n) => {
+  if (n < 0) throw new Error("n must be non-negative");
+  if (n === 0) return 0;
+  if (n === 1) return 1;
 
-  const series = [];
-  let a = 0,
-    b = 1;
-
-  // Add the first Fibonacci number (0) if it is within the limit.
-  if (a <= n) series.push(a);
-
-  // Add the second Fibonacci number (1) if it is within the limit.
-  if (b <= n) series.push(b);
-
-  while (true) {
-    const next = a + b;
-    if (next > n) break; // Stop if the next number exceeds n
-    series.push(next);
-    // Shift for the next iteration:
-    a = b;
-    b = next;
+  let prev = 0,
+    curr = 1;
+  for (let i = 2; i <= n; i++) {
+    [prev, curr] = [curr, prev + curr];
   }
-
-  return series;
+  return curr;
 };
 
-// Testing the iterative method:
-console.log(fibonacciSeriesIterative(21));
-// Expected output: [0, 1, 1, 2, 3, 5, 8, 13, 21]
+// To generate the full sequence up to n (inclusive):
+const fibonacciSequence = (n) => {
+  if (n < 0) throw new Error("n must be non-negative");
+  const seq = [];
+  let prev = 0,
+    curr = 1;
+  for (let i = 0; i <= n; i++) {
+    if (i === 0) seq.push(0);
+    else if (i === 1) seq.push(1);
+    else {
+      const next = prev + curr;
+      seq.push(next);
+      prev = curr;
+      curr = next;
+    }
+  }
+  return seq;
+};
+
+// Example usage:
+console.log(fibonacciIterative(100)); // 55
+//console.log(fibonacciSequence(10)); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
