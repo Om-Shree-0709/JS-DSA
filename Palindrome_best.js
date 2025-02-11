@@ -1,10 +1,7 @@
 /*
 1. Using String Reversal (Simple & Readable)
-🟢 Pros:
-✅ No extra space (O(1) space complexity).
-✅ More efficient than string-based methods.
-🔴 Cons:
-❌ More complex logic than the string method.
+🟢 Pros: Simple, easy to understand.
+🔴 Cons: Uses extra space for string conversion.
 */
 const isPalindrome = (num) => {
   const str = num.toString();
