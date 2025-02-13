@@ -14,7 +14,7 @@
 
 // CODE
 
-function amountSaved(n, arr, k) {
+const amountSaved = (n, arr, k) => {
   if (k === 0 || k === 1) return 0;
   let ans = 0;
   let i = 0;
@@ -32,7 +32,7 @@ function amountSaved(n, arr, k) {
     }
   }
   return ans;
-}
+};
 
 // Example usage:
 const n = 3;
