@@ -12,16 +12,16 @@ const flatten2 = (arr) =>
     []
   );
 
-console.log(flatten1([1, [2, 3], 4, [5, [6, 7]]]).join(","));
-
 console.log(flatten1([1, [2, 3], 4, [5, [6, 7]]]));
 /*Output: [
-  1, 2, 3, 4,
-  5, 6, 7
-] */
+    1, 2, 3, 4,
+    5, 6, 7
+    ] */
 
 //If Want in one line
 console.log(JSON.stringify(flatten1([1, [2, 3], 4, [5, [6, 7]]])));
+//to check type
+console.log(typeof JSON.stringify(flatten1([1, [2, 3], 4, [5, [6, 7]]])));
 //Output: [1,2,3,4,5,6,7]
 
 console.log(flatten1([1, [2, 3], 4, [5, [6, 7]]]).join(" "));
