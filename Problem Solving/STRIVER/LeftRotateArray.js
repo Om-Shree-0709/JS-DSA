@@ -8,20 +8,20 @@ const rotate = (arr) => {
   return arr;
 };
 
-console.log(rotate([1, 2, 3, 4, 5, 6]));
-
 const nRotate = (arr, d) => {
-  //Store first d elements in array
-  let temp = [];
+  // Store first d elements in temp array
+  let temp = arr.slice(0, d);
 
-  for (let i = 0; i < d; i++) {
-    temp.push(i);
-  }
+  // Shift the remaining elements
   for (let i = d; i < arr.length; i++) {
     arr[i - d] = arr[i];
   }
 
-  return arr + temp;
+  // Append temp elements to the end
+  arr.length = arr.length - d; // Remove the last d elements
+  arr.push(...temp);
+
+  return arr;
 };
 
 console.log(nRotate([1, 2, 3, 4, 5, 6], 2));
