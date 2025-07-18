@@ -10,7 +10,7 @@ const twoSum1 = (nums, target) => {
   return null;
 };
 
-//Using HashMap
+//Using HashMap O(nlog(n))
 const twoSum2 = (nums, target) => {
   let map = new Map();
   for (let i = 0; i < nums.length; i++) {
@@ -24,6 +24,6 @@ const twoSum2 = (nums, target) => {
 };
 
 // Example usage
-console.log(twoSum([2, 7, 11, 15], 9)); // Output: [0, 1]
+console.log(twoSum1([2, 7, 11, 15], 9)); // Output: [0, 1]
 
-console.log(twoSum([2, 7, 11, 15], 9));
+console.log(twoSum2([2, 7, 11, 15], 9));
